@@ -11,6 +11,10 @@
 		C32E04F624867CA9005DB49B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E04F524867CA9005DB49B /* ViewController.swift */; };
 		C32E04F824867CB0005DB49B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E04F724867CB0005DB49B /* Assets.xcassets */; };
 		C32E04FB24867CB0005DB49B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32E04F924867CB0005DB49B /* Main.storyboard */; };
+		C32E050424867CCF005DB49B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050324867CCF005DB49B /* Constants.swift */; };
+		C32E050724867DB0005DB49B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050624867DB0005DB49B /* Record.swift */; };
+		C32E050924867F90005DB49B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050824867F90005DB49B /* Country.swift */; };
+		C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D45E55249E04EA007BCAF7 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		C32E04FA24867CB0005DB49B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C32E04FC24867CB0005DB49B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C32E04FD24867CB0005DB49B /* COVID_19_Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = COVID_19_Tracker.entitlements; sourceTree = "<group>"; };
+		C32E050324867CCF005DB49B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C32E050624867DB0005DB49B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		C32E050824867F90005DB49B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		C3D45E55249E04EA007BCAF7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,7 @@
 		C32E04F224867CA9005DB49B /* COVID-19 Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				C32E050524867DA0005DB49B /* Data Model */,
 				C32E04F324867CA9005DB49B /* AppDelegate.swift */,
 				C32E04F524867CA9005DB49B /* ViewController.swift */,
 				C32E04F724867CB0005DB49B /* Assets.xcassets */,
@@ -61,6 +70,17 @@
 				C32E04FD24867CB0005DB49B /* COVID_19_Tracker.entitlements */,
 			);
 			path = "COVID-19 Tracker";
+			sourceTree = "<group>";
+		};
+		C32E050524867DA0005DB49B /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				C32E050324867CCF005DB49B /* Constants.swift */,
+				C32E050624867DB0005DB49B /* Record.swift */,
+				C32E050824867F90005DB49B /* Country.swift */,
+				C3D45E55249E04EA007BCAF7 /* DataModel.swift */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +155,10 @@
 			files = (
 				C32E04F624867CA9005DB49B /* ViewController.swift in Sources */,
 				C32E04F424867CA9005DB49B /* AppDelegate.swift in Sources */,
+				C32E050724867DB0005DB49B /* Record.swift in Sources */,
+				C32E050924867F90005DB49B /* Country.swift in Sources */,
+				C32E050424867CCF005DB49B /* Constants.swift in Sources */,
+				C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
