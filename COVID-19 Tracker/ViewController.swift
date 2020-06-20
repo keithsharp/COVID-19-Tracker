@@ -10,18 +10,20 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    var model: DataModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let model = DataModel.createDataModel()
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.model = DataModel.createDataModel()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(onModelUpdate(_:)), name: .modelUpdated, object: nil)
     }
 
-
+    @objc func onModelUpdate(_ notification:Notification) {
+        print("Got model updated notification")
+    }
+    
 }
 

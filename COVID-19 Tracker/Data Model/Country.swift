@@ -31,7 +31,7 @@ import Foundation
 
 // See also: https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data-codebook.md
 
-struct Country: Decodable {
+struct Country {
     let code: String
     let name: String
     let population: Int
@@ -39,14 +39,4 @@ struct Country: Decodable {
     let medianAge: Float?
     let populationOver65: Float? // Percentage
     let populationOver70: Float? // Percentage
-    
-    enum CodingKeys: String, CodingKey {
-        case code = "iso_code"
-        case name = "location"
-        case population = "population"
-        case populationDensity = "population_density"
-        case medianAge = "median_age"
-        case populationOver65 = "aged_65_older"
-        case populationOver70 = "aged_70_older"
-    }
 }

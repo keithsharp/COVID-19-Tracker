@@ -31,20 +31,11 @@ import Foundation
 
 // See also: https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data-codebook.md
 
-struct Record: Decodable {
+struct Record {
     var location: String
     var date: Date
     var totalCases: Int?
     var newCases: Int?
     var totalDeaths: Int?
     var newDeaths: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case location, date
-        
-        case totalCases = "total_cases"
-        case newCases = "new_cases"
-        case totalDeaths = "total_deaths"
-        case newDeaths = "new_deaths"
-    }
 }

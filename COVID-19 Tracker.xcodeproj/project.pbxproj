@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		C32E050424867CCF005DB49B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050324867CCF005DB49B /* Constants.swift */; };
 		C32E050724867DB0005DB49B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050624867DB0005DB49B /* Record.swift */; };
 		C32E050924867F90005DB49B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050824867F90005DB49B /* Country.swift */; };
+		C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B5F249E474F00534C2B /* SwiftCSV */; };
 		C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D45E55249E04EA007BCAF7 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +101,9 @@
 			dependencies = (
 			);
 			name = "COVID-19 Tracker";
+			packageProductDependencies = (
+				C3AA2B5F249E474F00534C2B /* SwiftCSV */,
+			);
 			productName = "COVID-19 Tracker";
 			productReference = C32E04F024867CA9005DB49B /* COVID-19 Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +132,9 @@
 				Base,
 			);
 			mainGroup = C32E04E724867CA9005DB49B;
+			packageReferences = (
+				C3AA2B5E249E474E00534C2B /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+			);
 			productRefGroup = C32E04F124867CA9005DB49B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -351,6 +359,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C3AA2B5E249E474E00534C2B /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C3AA2B5F249E474F00534C2B /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3AA2B5E249E474E00534C2B /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C32E04E824867CA9005DB49B /* Project object */;
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftCSV
 
 typealias Countries = [Country]
 typealias Records = [Record]
@@ -32,38 +33,43 @@ class DataModel {
     
     static func createDataModel() -> DataModel {
         let model = DataModel()
+        model.fetchTimeStamp()
         
         if model.shouldRefreshCache() {
             model.fetchData()
         } else {
-            model.refresh()
+            model.parse()
         }
         
         return model
     }
     
     // Force use of factory method: createDataModel()
-    private init() { }
+    private init() {
+        let defaults = UserDefaults.standard
+        self.localLastUpdated = defaults.object(forKey: Preferences.DOWNLOADED_DATE) as? Date
+    }
 }
 
 
 // MARK:- Parsing Data
 extension DataModel {
     
-    private func refresh() {
-        parseRecords()
-    }
-    
-    private func parseRecords() {
-        let cacheUrl = getCacheFileURL()
+    private func parse() {
+        let url = getCacheFileURL()
         do {
-            let data = try Data(contentsOf: cacheUrl)
-            let decoder = JSONDecoder()
-            let dict = try decoder.decode([String: Records].self, from: data)
-            print("Dict size: \(dict.count)")
+            let csv = try CSV(url: url)
+            var count = 0
+            try csv.enumerateAsArray { array in
+                if let code = array.first, code == "GBR" {
+                    count += 1
+                }
+            }
+            print("GBR Count: \(count)")
         } catch {
-            print("error:\(error)")
+            fatalError("Failed to parse CSV file")
         }
+        NotificationCenter.default.post(name: .modelUpdated, object: nil)
     }
 }
 
@@ -71,12 +77,17 @@ extension DataModel {
 extension DataModel {
     
     private func fetchTimeStamp() {
+        
+        let sem = DispatchSemaphore.init(value: 0)
+        
         guard let url = URL(string: TIMESTAMP_URL) else {
             fatalError("Could not convert TIMESTAMP_URL to URL.")
         }
         
         let session = URLSession.shared
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
+            defer { sem.signal() }
+            
             if error != nil {
                 fatalError("Failed to fetch timestamp URL")
             }
@@ -103,15 +114,23 @@ extension DataModel {
             self.remoteLastUpdated = timeStamp
         })
         task.resume()
+        
+        sem.wait()
     }
     
     private func fetchData() {
+        
+        let sem = DispatchSemaphore.init(value: 0)
+        
+        print("DOWNLOADING")
         guard let url = URL(string: DATA_URL) else {
             fatalError("Could not convert DATA_URL to URL.")
         }
                
         let session = URLSession.shared
         let task = session.dataTask(with: url, completionHandler: { data, response, error in
+            defer { sem.signal() }
+            
             if error != nil {
                 fatalError("Failed to fetch data")
             }
@@ -125,9 +144,13 @@ extension DataModel {
             }
             self.writeDataToCache(data: data)
             self.localLastUpdated = self.remoteLastUpdated
-            self.refresh()
+            let defaults = UserDefaults.standard
+            defaults.set(self.localLastUpdated, forKey: Preferences.DOWNLOADED_DATE)
+            self.parse()
         })
         task.resume()
+        
+        sem.wait()
     }
 }
 
@@ -146,12 +169,13 @@ extension DataModel {
     private func shouldRefreshCache() -> Bool {
         let cacheFile = getCacheFileURL()
         
-        if !FileManager.default.fileExists(atPath: cacheFile.absoluteString) { return true }
+        if !FileManager.default.isReadableFile(atPath: cacheFile.path) { return true }
 
         guard let localLastUpdated = localLastUpdated else { return true }
 
         if remoteLastUpdated == nil {
-            fetchTimeStamp() // This should crash if it fails hence the force unwrap below
+            // This should crash if it fails hence the force unwrap below
+            fetchTimeStamp()
         }
         if localLastUpdated < remoteLastUpdated! {
             return true

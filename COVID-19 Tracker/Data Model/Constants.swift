@@ -9,6 +9,14 @@
 import Foundation
 
 let TIMESTAMP_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data-last-updated-timestamp.txt"
-let DATA_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.json"
+let DATA_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv"
 
-let CACHE_FILENAME = "owid-covid-data.json"
+let CACHE_FILENAME = "owid-covid-data.csv"
+
+struct Preferences {
+    static let DOWNLOADED_DATE = "Preferences.DOWNLOADED_DATE"
+}
+
+extension Notification.Name {
+    static let modelUpdated = Notification.Name("modelUpdated")
+}
