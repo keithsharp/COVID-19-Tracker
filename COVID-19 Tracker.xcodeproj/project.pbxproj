@@ -15,6 +15,7 @@
 		C32E050724867DB0005DB49B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050624867DB0005DB49B /* Record.swift */; };
 		C32E050924867F90005DB49B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050824867F90005DB49B /* Country.swift */; };
 		C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B5F249E474F00534C2B /* SwiftCSV */; };
+		C3AA2B63249F53C800534C2B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B62249F53C800534C2B /* Charts */; };
 		C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D45E55249E04EA007BCAF7 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */,
+				C3AA2B63249F53C800534C2B /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,7 @@
 			name = "COVID-19 Tracker";
 			packageProductDependencies = (
 				C3AA2B5F249E474F00534C2B /* SwiftCSV */,
+				C3AA2B62249F53C800534C2B /* Charts */,
 			);
 			productName = "COVID-19 Tracker";
 			productReference = C32E04F024867CA9005DB49B /* COVID-19 Tracker.app */;
@@ -134,6 +137,7 @@
 			mainGroup = C32E04E724867CA9005DB49B;
 			packageReferences = (
 				C3AA2B5E249E474E00534C2B /* XCRemoteSwiftPackageReference "SwiftCSV" */,
+				C3AA2B61249F53C800534C2B /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = C32E04F124867CA9005DB49B /* Products */;
 			projectDirPath = "";
@@ -369,6 +373,14 @@
 				minimumVersion = 0.5.6;
 			};
 		};
+		C3AA2B61249F53C800534C2B /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -376,6 +388,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3AA2B5E249E474E00534C2B /* XCRemoteSwiftPackageReference "SwiftCSV" */;
 			productName = SwiftCSV;
+		};
+		C3AA2B62249F53C800534C2B /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3AA2B61249F53C800534C2B /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
