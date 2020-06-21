@@ -20,6 +20,7 @@
 		C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D45E55249E04EA007BCAF7 /* DataModel.swift */; };
 		C3D5833B249FB9A000E2B0D1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */; };
 		C3D5833D249FBAC100E2B0D1 /* DataModel+Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D5833C249FBAC100E2B0D1 /* DataModel+Charts.swift */; };
+		C3D58340249FC15F00E2B0D1 /* AxisDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D5833F249FC15F00E2B0D1 /* AxisDateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C3D45E55249E04EA007BCAF7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		C3D5833C249FBAC100E2B0D1 /* DataModel+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModel+Charts.swift"; sourceTree = "<group>"; };
+		C3D5833F249FC15F00E2B0D1 /* AxisDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +73,15 @@
 		C32E04F224867CA9005DB49B /* COVID-19 Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				C3D5833E249FC10E00E2B0D1 /* Charts */,
 				C32E050524867DA0005DB49B /* Data Model */,
 				C32E04F324867CA9005DB49B /* AppDelegate.swift */,
+				C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */,
 				C32E04F524867CA9005DB49B /* ViewController.swift */,
 				C32E04F724867CB0005DB49B /* Assets.xcassets */,
 				C32E04F924867CB0005DB49B /* Main.storyboard */,
 				C32E04FC24867CB0005DB49B /* Info.plist */,
 				C32E04FD24867CB0005DB49B /* COVID_19_Tracker.entitlements */,
-				C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */,
 			);
 			path = "COVID-19 Tracker";
 			sourceTree = "<group>";
@@ -93,6 +96,14 @@
 				C3D5833C249FBAC100E2B0D1 /* DataModel+Charts.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		C3D5833E249FC10E00E2B0D1 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				C3D5833F249FC15F00E2B0D1 /* AxisDateFormatter.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 				C3D5833D249FBAC100E2B0D1 /* DataModel+Charts.swift in Sources */,
 				C32E050924867F90005DB49B /* Country.swift in Sources */,
 				C32E050424867CCF005DB49B /* Constants.swift in Sources */,
+				C3D58340249FC15F00E2B0D1 /* AxisDateFormatter.swift in Sources */,
 				C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,9 +8,18 @@
 
 import Cocoa
 
+import Charts
+import TinyConstraints
+
 class ViewController: NSViewController {
 
     var model: DataModel?
+    
+    lazy var lineChartView: LineChartView = {
+        let chart = LineChartView()
+        
+        return chart
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +32,8 @@ class ViewController: NSViewController {
             NotificationCenter.default.post(name: .modelFirstLoadComplete, object: nil)
         }
         
+        view.addSubview(lineChartView)
+        lineChartView.edgesToSuperview()
     }
     
     func drawLineChart() {
