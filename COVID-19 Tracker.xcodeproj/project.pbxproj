@@ -18,6 +18,7 @@
 		C3AA2B63249F53C800534C2B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B62249F53C800534C2B /* Charts */; };
 		C3AA2B66249F5AAA00534C2B /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B65249F5AAA00534C2B /* TinyConstraints */; };
 		C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D45E55249E04EA007BCAF7 /* DataModel.swift */; };
+		C3D5833B249FB9A000E2B0D1 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C32E050624867DB0005DB49B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		C32E050824867F90005DB49B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		C3D45E55249E04EA007BCAF7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				C32E04F924867CB0005DB49B /* Main.storyboard */,
 				C32E04FC24867CB0005DB49B /* Info.plist */,
 				C32E04FD24867CB0005DB49B /* COVID_19_Tracker.entitlements */,
+				C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */,
 			);
 			path = "COVID-19 Tracker";
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C32E04F624867CA9005DB49B /* ViewController.swift in Sources */,
+				C3D5833B249FB9A000E2B0D1 /* MainWindowController.swift in Sources */,
 				C32E04F424867CA9005DB49B /* AppDelegate.swift in Sources */,
 				C32E050724867DB0005DB49B /* Record.swift in Sources */,
 				C32E050924867F90005DB49B /* Country.swift in Sources */,
