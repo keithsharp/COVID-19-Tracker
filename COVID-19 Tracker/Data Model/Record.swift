@@ -34,8 +34,8 @@ import Foundation
 struct Record {
     var location: String
     var date: Date
-    var totalCases: Int?
-    var newCases: Int?
-    var totalDeaths: Int?
-    var newDeaths: Int?
+    var totalCases: Double?
+    var newCases: Double?
+    var totalDeaths: Double?
+    var newDeaths: Double?
 }

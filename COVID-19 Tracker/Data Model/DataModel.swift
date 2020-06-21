@@ -77,24 +77,24 @@ extension DataModel {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         guard let date = dateFormatter.date(from: dateString) else { return nil }
         
-        var totalCases: Int?
+        var totalCases: Double?
         if let tc = dict["total_cases"] {
-            totalCases = Int(tc)
+            totalCases = Double(tc)
         }
         
-        var newCases: Int?
+        var newCases: Double?
         if let nc = dict["new_cases"] {
-            newCases = Int(nc)
+            newCases = Double(nc)
         }
         
-        var totalDeaths: Int?
+        var totalDeaths: Double?
         if let td = dict["total_deaths"] {
-            totalDeaths = Int(td)
+            totalDeaths = Double(td)
         }
         
-        var newDeaths: Int?
+        var newDeaths: Double?
         if let nd = dict["new_deaths"] {
-            newDeaths = Int(nd)
+            newDeaths = Double(nd)
         }
         
         return Record(location: location, date: date, totalCases: totalCases, newCases: newCases, totalDeaths: totalDeaths, newDeaths: newDeaths)
