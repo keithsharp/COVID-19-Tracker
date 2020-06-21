@@ -25,6 +25,16 @@ class ViewController: NSViewController {
         
     }
     
+    func drawLineChart() {
+        guard let model = model else {
+            print("drawLineCHart: Model is nil, that's strange")
+            return
+        }
+        
+        let data = model.totalDeathsFor(country: "United Kingdom")
+        print("Rows of data: \(data.count)")
+    }
+    
     func printNumberOfRecords() {
         if let model = model {
             print("Record count: \(model.records.count)")
@@ -36,6 +46,7 @@ class ViewController: NSViewController {
     @objc func onModelFirstLoadComplete(_ notification:Notification) {
         print("Model first load complete")
         printNumberOfRecords()
+        drawLineChart()
     }
     
     @objc func onModelUpdate(_ notification:Notification) {
