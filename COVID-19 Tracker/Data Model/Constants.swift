@@ -19,4 +19,5 @@ struct Preferences {
 
 extension Notification.Name {
     static let modelUpdated = Notification.Name("modelUpdated")
+    static let modelFirstLoadComplete = Notification.Name("modelFirstLoadComplete")
 }

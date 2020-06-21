@@ -15,20 +15,32 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(onModelFirstLoadComplete(_:)), name: .modelFirstLoadComplete, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onModelUpdate(_:)), name: .modelUpdated, object: nil)
+        
         DispatchQueue.global(qos: .userInitiated).async {
             self.model = DataModel.createDataModel()
-            NotificationCenter.default.post(name: .modelUpdated, object: nil)
+            NotificationCenter.default.post(name: .modelFirstLoadComplete, object: nil)
         }
         
     }
-
-    @objc func onModelUpdate(_ notification:Notification) {
+    
+    func printNumberOfRecords() {
         if let model = model {
             print("Record count: \(model.records.count)")
         } else {
-            print("Model is nil?")
+            fatalError("Model was nil, oops!")
         }
+    }
+
+    @objc func onModelFirstLoadComplete(_ notification:Notification) {
+        print("Model first load complete")
+        printNumberOfRecords()
+    }
+    
+    @objc func onModelUpdate(_ notification:Notification) {
+        print("Got model update notification")
+        printNumberOfRecords()
     }
     
 }
