@@ -16,6 +16,7 @@
 		C32E050924867F90005DB49B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050824867F90005DB49B /* Country.swift */; };
 		C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B5F249E474F00534C2B /* SwiftCSV */; };
 		C3AA2B63249F53C800534C2B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B62249F53C800534C2B /* Charts */; };
+		C3AA2B66249F5AAA00534C2B /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B65249F5AAA00534C2B /* TinyConstraints */; };
 		C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D45E55249E04EA007BCAF7 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 			files = (
 				C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */,
 				C3AA2B63249F53C800534C2B /* Charts in Frameworks */,
+				C3AA2B66249F5AAA00534C2B /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +108,7 @@
 			packageProductDependencies = (
 				C3AA2B5F249E474F00534C2B /* SwiftCSV */,
 				C3AA2B62249F53C800534C2B /* Charts */,
+				C3AA2B65249F5AAA00534C2B /* TinyConstraints */,
 			);
 			productName = "COVID-19 Tracker";
 			productReference = C32E04F024867CA9005DB49B /* COVID-19 Tracker.app */;
@@ -138,6 +141,7 @@
 			packageReferences = (
 				C3AA2B5E249E474E00534C2B /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 				C3AA2B61249F53C800534C2B /* XCRemoteSwiftPackageReference "Charts" */,
+				C3AA2B64249F5AAA00534C2B /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 			);
 			productRefGroup = C32E04F124867CA9005DB49B /* Products */;
 			projectDirPath = "";
@@ -381,6 +385,14 @@
 				minimumVersion = 3.5.0;
 			};
 		};
+		C3AA2B64249F5AAA00534C2B /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -393,6 +405,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3AA2B61249F53C800534C2B /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
+		};
+		C3AA2B65249F5AAA00534C2B /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3AA2B64249F5AAA00534C2B /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
