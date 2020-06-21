@@ -44,7 +44,7 @@ class DataModel {
         return model
     }
     
-    // Force use of factory method: createDataModel()
+    // Force use of factory method createDataModel()
     private init() {
         let defaults = UserDefaults.standard
         self.localLastUpdated = defaults.object(forKey: Preferences.DOWNLOADED_DATE) as? Date
@@ -59,17 +59,45 @@ extension DataModel {
         let url = getCacheFileURL()
         do {
             let csv = try CSV(url: url)
-            var count = 0
-            try csv.enumerateAsArray { array in
-                if let code = array.first, code == "GBR" {
-                    count += 1
+            try csv.enumerateAsDict { dict in
+                if let record = self.parseRecord(dict: dict) {
+                    self._records.append(record)
                 }
             }
-            print("GBR Count: \(count)")
         } catch {
             fatalError("Failed to parse CSV file")
         }
-        NotificationCenter.default.post(name: .modelUpdated, object: nil)
+    }
+    
+    private func parseRecord(dict: [String: String] ) -> Record? {
+        guard let location = dict["location"] else { return nil }
+        
+        guard let dateString = dict["date"] else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.date(from: dateString) else { return nil }
+        
+        var totalCases: Int?
+        if let tc = dict["total_cases"] {
+            totalCases = Int(tc)
+        }
+        
+        var newCases: Int?
+        if let nc = dict["new_cases"] {
+            newCases = Int(nc)
+        }
+        
+        var totalDeaths: Int?
+        if let td = dict["total_deaths"] {
+            totalDeaths = Int(td)
+        }
+        
+        var newDeaths: Int?
+        if let nd = dict["new_deaths"] {
+            newDeaths = Int(nd)
+        }
+        
+        return Record(location: location, date: date, totalCases: totalCases, newCases: newCases, totalDeaths: totalDeaths, newDeaths: newDeaths)
     }
 }
 
