@@ -30,6 +30,21 @@ class ViewController: NSViewController {
         return chart
     }()
     
+    lazy var barChartView: BarChartView = {
+        let chart = BarChartView()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM"
+        chart.xAxis.valueFormatter = AxisDateFormatter(formatter: dateFormatter)
+        chart.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        chart.animate(xAxisDuration: 2.5)
+        
+        chart.noDataText = "Loading data, please be patient"
+        
+        return chart
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,10 +56,38 @@ class ViewController: NSViewController {
             NotificationCenter.default.post(name: .modelFirstLoadComplete, object: nil)
         }
         
-        view.addSubview(lineChartView)
-        lineChartView.edgesToSuperview()
+//        view.addSubview(lineChartView)
+//        lineChartView.edgesToSuperview()
+        view.addSubview(barChartView)
+        barChartView.edgesToSuperview()
     }
     
+    func printNumberOfRecords() {
+        if let model = model {
+            print("Record count: \(model.records.count)")
+        } else {
+            fatalError("Model was nil, oops!")
+        }
+    }
+
+    @objc func onModelFirstLoadComplete(_ notification:Notification) {
+        print("Model first load complete")
+        printNumberOfRecords()
+        DispatchQueue.main.async {
+//            self.drawLineChart()
+            self.drawBarChart()
+        }
+    }
+    
+    @objc func onModelUpdate(_ notification:Notification) {
+        print("Got model update notification")
+        printNumberOfRecords()
+    }
+    
+}
+
+// MARK:- Chart drawing
+extension ViewController {
     func drawLineChart() {
         guard let model = model else {
             print("drawLineChart: Model is nil, that's strange")
@@ -72,26 +115,23 @@ class ViewController: NSViewController {
         lineChartView.data = data
     }
     
-    func printNumberOfRecords() {
-        if let model = model {
-            print("Record count: \(model.records.count)")
-        } else {
-            fatalError("Model was nil, oops!")
+    func drawBarChart() {
+        guard let model = model else {
+            print("drawBarChart: Model is nil, that's strange")
+            return
         }
-    }
-
-    @objc func onModelFirstLoadComplete(_ notification:Notification) {
-        print("Model first load complete")
-        printNumberOfRecords()
-        DispatchQueue.main.async {
-            self.drawLineChart()
+        
+        let newDeathsValues: [ChartDataEntry] = model.newDeathsFor(country: COUNTRY).map {
+            return BarChartDataEntry(x: $0.0, y: $0.1)
         }
+        let newDeathsDataSet = BarChartDataSet(entries: newDeathsValues, label: "\(COUNTRY) Daily Deaths")
+        newDeathsDataSet.setColor(.systemRed, alpha: 1.0)
+        let data = BarChartData(dataSet: newDeathsDataSet)
+        
+        let dataSetRange = newDeathsDataSet.xMax - newDeathsDataSet.xMin
+        let availableSpacePerBar = dataSetRange / Double(newDeathsDataSet.count)
+        data.barWidth = availableSpacePerBar * 0.8 // 80% of available space
+        
+        barChartView.data = data
     }
-    
-    @objc func onModelUpdate(_ notification:Notification) {
-        print("Got model update notification")
-        printNumberOfRecords()
-    }
-    
 }
-
