@@ -51,13 +51,31 @@ class ViewController: NSViewController {
             return
         }
         
-        let values = model.totalDeathsFor(country: COUNTRY).map {
-            ChartDataEntry(x: $0.0, y: $0.1)
+        var max = 0.0
+        let totalDeathsValues: [ChartDataEntry] = model.totalDeathsFor(country: COUNTRY).map {
+            if $0.1 > max { max = $0.1 }
+            return ChartDataEntry(x: $0.0, y: $0.1)
         }
-        let dataSet = LineChartDataSet(entries: values, label: "\(COUNTRY) Total Deaths")
-        dataSet.drawCirclesEnabled = false
-        dataSet.drawValuesEnabled = false
-        let data = LineChartData(dataSet: dataSet)
+        lineChartView.leftAxis.axisMinimum = 0.0
+        lineChartView.leftAxis.axisMaximum = max
+        let totalDeathsDataSet = LineChartDataSet(entries: totalDeathsValues, label: "\(COUNTRY) Total Deaths")
+        totalDeathsDataSet.drawCirclesEnabled = false
+        totalDeathsDataSet.drawValuesEnabled = false
+        let data = LineChartData(dataSet: totalDeathsDataSet)
+        
+        max = 0.0
+        let newDeathsValues: [ChartDataEntry] = model.newDeathsFor(country: COUNTRY).map {
+            if $0.1 > max { max = $0.1 }
+            return ChartDataEntry(x: $0.0, y: $0.1)
+        }
+        lineChartView.rightAxis.axisMinimum = 0.0
+        lineChartView.rightAxis.axisMaximum = max
+        let newDeathsDataSet = LineChartDataSet(entries: newDeathsValues, label: "\(COUNTRY) Daily Deaths")
+        newDeathsDataSet.drawCirclesEnabled = false
+        newDeathsDataSet.drawValuesEnabled = false
+        newDeathsDataSet.setColor(.systemRed, alpha: 1.0)
+        newDeathsDataSet.axisDependency = .right
+        data.addDataSet(newDeathsDataSet)
         
         lineChartView.data = data
     }

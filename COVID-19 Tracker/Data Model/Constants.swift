@@ -9,7 +9,7 @@
 import Foundation
 
 // FIXME:- Temporary hack until GUI is improved
-let COUNTRY = "World"
+let COUNTRY = "United Kingdom"
 
 let TIMESTAMP_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data-last-updated-timestamp.txt"
 let DATA_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv"
