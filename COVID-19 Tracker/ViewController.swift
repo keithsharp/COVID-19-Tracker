@@ -18,6 +18,10 @@ class ViewController: NSViewController {
     lazy var lineChartView: LineChartView = {
         let chart = LineChartView()
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM"
+        chart.xAxis.valueFormatter = AxisDateFormatter(formatter: dateFormatter)
+        
         return chart
     }()
     
