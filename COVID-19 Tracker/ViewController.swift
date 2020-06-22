@@ -42,8 +42,13 @@ class ViewController: NSViewController {
             return
         }
         
-        let data = model.totalDeathsFor(country: "United Kingdom")
-        print("Rows of data: \(data.count)")
+        let values = model.totalDeathsFor(country: "United Kingdom").map {
+            ChartDataEntry(x: $0.0, y: $0.1)
+        }
+        let dataSet = LineChartDataSet(entries: values, label: "UK Total Deaths")
+        let data = LineChartData(dataSet: dataSet)
+        
+        lineChartView.data = data
     }
     
     func printNumberOfRecords() {
@@ -57,7 +62,9 @@ class ViewController: NSViewController {
     @objc func onModelFirstLoadComplete(_ notification:Notification) {
         print("Model first load complete")
         printNumberOfRecords()
-        drawLineChart()
+        DispatchQueue.main.async {
+            self.drawLineChart()
+        }
     }
     
     @objc func onModelUpdate(_ notification:Notification) {

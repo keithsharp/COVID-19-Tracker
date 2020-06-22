@@ -13,7 +13,7 @@ class MainWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
     
-        window?.title = "United Kingdom COVID-19 Deaths"
+        window?.title = "COVID-19 Tracker"
         self.windowFrameAutosaveName = "position"
     }
 
