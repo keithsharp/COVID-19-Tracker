@@ -134,6 +134,7 @@ extension DataModel {
                 fatalError("Failed to create UTC TimeZone object")
             }
             dateFormatter.timeZone = utc
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             guard let timeStamp = dateFormatter.date(from: timeStampString) else {
                 fatalError("Failed to convert timestamp to date")
