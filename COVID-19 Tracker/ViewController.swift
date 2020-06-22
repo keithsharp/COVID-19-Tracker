@@ -21,6 +21,11 @@ class ViewController: NSViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM"
         chart.xAxis.valueFormatter = AxisDateFormatter(formatter: dateFormatter)
+        chart.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        chart.animate(xAxisDuration: 2.5)
+        
+        chart.noDataText = "Loading data, please be patient"
         
         return chart
     }()
@@ -46,10 +51,12 @@ class ViewController: NSViewController {
             return
         }
         
-        let values = model.totalDeathsFor(country: "United Kingdom").map {
+        let values = model.totalDeathsFor(country: COUNTRY).map {
             ChartDataEntry(x: $0.0, y: $0.1)
         }
-        let dataSet = LineChartDataSet(entries: values, label: "UK Total Deaths")
+        let dataSet = LineChartDataSet(entries: values, label: "\(COUNTRY) Total Deaths")
+        dataSet.drawCirclesEnabled = false
+        dataSet.drawValuesEnabled = false
         let data = LineChartData(dataSet: dataSet)
         
         lineChartView.data = data
