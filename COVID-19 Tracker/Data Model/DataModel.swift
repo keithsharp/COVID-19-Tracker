@@ -9,7 +9,7 @@
 import Foundation
 import SwiftCSV
 
-typealias Countries = [Country]
+typealias Countries = Set<Country>
 typealias Records = [Record]
 
 class DataModel {
@@ -60,6 +60,10 @@ extension DataModel {
         do {
             let csv = try CSV(url: url)
             try csv.enumerateAsDict { dict in
+                if let country = self.parseCountry(dict: dict) {
+                    self._countries.insert(country)
+                }
+                
                 if let record = self.parseRecord(dict: dict) {
                     self._records.append(record)
                 }
@@ -69,7 +73,14 @@ extension DataModel {
         }
     }
     
-    private func parseRecord(dict: [String: String] ) -> Record? {
+    private func parseCountry(dict: [String: String]) -> Country? {
+        guard let name = dict["location"] else { return nil }
+        guard let code = dict["iso_code"] else { return nil }
+        
+        return Country(code: code, name: name)
+    }
+    
+    private func parseRecord(dict: [String: String]) -> Record? {
         guard let location = dict["location"] else { return nil }
         
         guard let dateString = dict["date"] else { return nil }

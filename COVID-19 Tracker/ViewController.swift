@@ -88,10 +88,19 @@ class ViewController: NSViewController {
             fatalError("Model was nil, oops!")
         }
     }
+    
+    func printNumberOfCountries() {
+        if let model = model {
+            print("Country count: \(model.countries.count)")
+        } else {
+            fatalError("Model was nil, oops!")
+        }
+    }
 
     @objc func onModelFirstLoadComplete(_ notification:Notification) {
         print("Model first load complete")
         printNumberOfRecords()
+        printNumberOfCountries()
         DispatchQueue.main.async {
 //            self.drawLineChart()
 //            self.drawBarChart()
