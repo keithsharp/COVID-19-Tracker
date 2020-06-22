@@ -45,6 +45,23 @@ class ViewController: NSViewController {
         return chart
     }()
     
+    lazy var combinedChartView: CombinedChartView = {
+        let chart = CombinedChartView()
+        
+        chart.rightAxis.drawGridLinesEnabled = false
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM"
+        chart.xAxis.valueFormatter = AxisDateFormatter(formatter: dateFormatter)
+        chart.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        chart.animate(xAxisDuration: 2.5)
+        
+        chart.noDataText = "Loading data, please be patient"
+        
+        return chart
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,8 +75,10 @@ class ViewController: NSViewController {
         
 //        view.addSubview(lineChartView)
 //        lineChartView.edgesToSuperview()
-        view.addSubview(barChartView)
-        barChartView.edgesToSuperview()
+//        view.addSubview(barChartView)
+//        barChartView.edgesToSuperview()
+        view.addSubview(combinedChartView)
+        combinedChartView.edgesToSuperview()
     }
     
     func printNumberOfRecords() {
@@ -75,7 +94,8 @@ class ViewController: NSViewController {
         printNumberOfRecords()
         DispatchQueue.main.async {
 //            self.drawLineChart()
-            self.drawBarChart()
+//            self.drawBarChart()
+            self.drawCombinedChart()
         }
     }
     
@@ -133,5 +153,37 @@ extension ViewController {
         data.barWidth = availableSpacePerBar * 0.8 // 80% of available space
         
         barChartView.data = data
+    }
+    
+    func drawCombinedChart() {
+        guard let model = model else {
+            print("drawCombinedChart: Model is nil, that's strange")
+            return
+        }
+        
+        let newDeathsValues: [ChartDataEntry] = model.newDeathsFor(country: COUNTRY).map {
+            return BarChartDataEntry(x: $0.0, y: $0.1)
+        }
+        let newDeathsDataSet = BarChartDataSet(entries: newDeathsValues, label: "\(COUNTRY) Daily Deaths")
+        newDeathsDataSet.setColor(.systemRed, alpha: 1.0)
+        newDeathsDataSet.axisDependency = .right
+        let newDeathsBarData = BarChartData(dataSet: newDeathsDataSet)
+        
+        let dataSetRange = newDeathsDataSet.xMax - newDeathsDataSet.xMin
+        let availableSpacePerBar = dataSetRange / Double(newDeathsDataSet.count)
+        newDeathsBarData.barWidth = availableSpacePerBar * 0.8 // 80% of available space
+        
+        let totalDeathsValues: [ChartDataEntry] = model.totalDeathsFor(country: COUNTRY).map {
+            return ChartDataEntry(x: $0.0, y: $0.1)
+        }
+        let totalDeathsDataSet = LineChartDataSet(entries: totalDeathsValues, label: "\(COUNTRY) Total Deaths")
+        totalDeathsDataSet.drawCirclesEnabled = false
+        totalDeathsDataSet.drawValuesEnabled = false
+        let totalDeathsLineData = LineChartData(dataSet: totalDeathsDataSet)
+        
+        let data = CombinedChartData()
+        data.lineData = totalDeathsLineData
+        data.barData = newDeathsBarData
+        combinedChartView.data = data
     }
 }
