@@ -8,9 +8,6 @@
 
 import Foundation
 
-// FIXME:- Temporary hack until GUI is improved
-let COUNTRY = "United Kingdom"
-
 let TIMESTAMP_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data-last-updated-timestamp.txt"
 let DATA_URL = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv"
 
@@ -18,6 +15,7 @@ let CACHE_FILENAME = "owid-covid-data.csv"
 
 struct Preferences {
     static let DOWNLOADED_DATE = "Preferences.DOWNLOADED_DATE"
+    static let LAST_COUNTRY_SELECTED = "Preferences.LAST_COUNTRY_SELECTED"
 }
 
 extension Notification.Name {

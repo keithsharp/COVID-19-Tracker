@@ -739,14 +739,41 @@
             </objects>
             <point key="canvasLocation" x="750" y="539"/>
         </scene>
-        <!--View Controller-->
+        <!--Config View Controller-->
         <scene sceneID="4di-gd-p8c">
             <objects>
-                <viewController id="aIQ-8t-KfX" sceneMemberID="viewController">
+                <viewController id="aIQ-8t-KfX" customClass="ConfigViewController" customModule="COVID_19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YGh-Ed-GkE">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UeC-g4-aed">
+                                <rect key="frame" x="18" y="256" width="265" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Country" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="l1H-aX-Pv5" id="iBt-6v-tm6">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <menu key="menu" id="hQI-X5-T8D">
+                                        <items>
+                                            <menuItem title="Country" state="on" id="l1H-aX-Pv5"/>
+                                            <menuItem title="Item 2" id="Wbt-0y-LBk"/>
+                                            <menuItem title="Item 3" id="0Xw-qv-ahV"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="countryPopUpButtonChanged:" target="aIQ-8t-KfX" id="Dva-uS-FTr"/>
+                                </connections>
+                            </popUpButton>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" constant="20" id="1PD-nS-II9"/>
+                            <constraint firstItem="UeC-g4-aed" firstAttribute="top" secondItem="YGh-Ed-GkE" secondAttribute="top" constant="20" id="ZLM-hw-mKO"/>
+                            <constraint firstItem="UeC-g4-aed" firstAttribute="leading" secondItem="YGh-Ed-GkE" secondAttribute="leading" constant="20" id="tWw-9W-Zw4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countryPopUpButton" destination="UeC-g4-aed" id="rbB-XF-srs"/>
+                    </connections>
                 </viewController>
                 <customObject id="Bpr-3f-AK7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
