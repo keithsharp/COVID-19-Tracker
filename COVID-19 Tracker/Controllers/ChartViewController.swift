@@ -1,20 +1,17 @@
 //
-//  ViewController.swift
+//  ChartViewController.swift
 //  COVID-19 Tracker
 //
-//  Created by Keith Sharp on 02/06/2020.
+//  Created by Keith Sharp on 23/06/2020.
 //  Copyright © 2020 Keith Sharp. All rights reserved.
 //
 
-import Cocoa
-
 import Charts
+import Cocoa
 import TinyConstraints
 
-class ViewController: NSViewController {
+class ChartViewController: NSViewController {
 
-    var model: DataModel?
-    
     lazy var lineChartView: LineChartView = {
         let chart = LineChartView()
         
@@ -62,42 +59,28 @@ class ViewController: NSViewController {
         return chart
     }()
     
+    var model: DataModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(onModelFirstLoadComplete(_:)), name: .modelFirstLoadComplete, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onModelUpdate(_:)), name: .modelUpdated, object: nil)
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.model = DataModel.createDataModel()
-            NotificationCenter.default.post(name: .modelFirstLoadComplete, object: nil)
-        }
-        
-//        view.addSubview(lineChartView)
-//        lineChartView.edgesToSuperview()
-//        view.addSubview(barChartView)
-//        barChartView.edgesToSuperview()
         view.addSubview(combinedChartView)
         combinedChartView.edgesToSuperview()
     }
     
-    func printNumberOfRecords() {
-        if let model = model {
-            print("Record count: \(model.records.count)")
-        } else {
-            fatalError("Model was nil, oops!")
-        }
-    }
-    
-    func printNumberOfCountries() {
-        if let model = model {
-            print("Country count: \(model.countries.count)")
-        } else {
-            fatalError("Model was nil, oops!")
-        }
-    }
+}
 
+// MARK:- Notification Observers
+extension ChartViewController {
     @objc func onModelFirstLoadComplete(_ notification:Notification) {
+        if let model = notification.object as? DataModel {
+            self.model = model
+        } else {
+            fatalError("Got onModelFirstLoadComplete without valid model")
+        }
         print("Model first load complete")
         printNumberOfRecords()
         printNumberOfCountries()
@@ -107,16 +90,15 @@ class ViewController: NSViewController {
             self.drawCombinedChart()
         }
     }
-    
+        
     @objc func onModelUpdate(_ notification:Notification) {
         print("Got model update notification")
         printNumberOfRecords()
     }
-    
 }
 
 // MARK:- Chart drawing
-extension ViewController {
+extension ChartViewController {
     func drawLineChart() {
         guard let model = model else {
             print("drawLineChart: Model is nil, that's strange")
@@ -194,5 +176,24 @@ extension ViewController {
         data.lineData = totalDeathsLineData
         data.barData = newDeathsBarData
         combinedChartView.data = data
+    }
+}
+
+// MARK:- Debugging output
+extension ChartViewController {
+    func printNumberOfRecords() {
+        if let model = model {
+            print("Record count: \(model.records.count)")
+        } else {
+            fatalError("Model was nil, oops!")
+        }
+    }
+    
+    func printNumberOfCountries() {
+        if let model = model {
+            print("Country count: \(model.countries.count)")
+        } else {
+            fatalError("Model was nil, oops!")
+        }
     }
 }

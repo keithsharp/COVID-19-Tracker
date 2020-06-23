@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C32E04F424867CA9005DB49B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E04F324867CA9005DB49B /* AppDelegate.swift */; };
-		C32E04F624867CA9005DB49B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E04F524867CA9005DB49B /* ViewController.swift */; };
+		C32E04F624867CA9005DB49B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E04F524867CA9005DB49B /* SplitViewController.swift */; };
 		C32E04F824867CB0005DB49B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E04F724867CB0005DB49B /* Assets.xcassets */; };
 		C32E04FB24867CB0005DB49B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32E04F924867CB0005DB49B /* Main.storyboard */; };
 		C32E050424867CCF005DB49B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050324867CCF005DB49B /* Constants.swift */; };
 		C32E050724867DB0005DB49B /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050624867DB0005DB49B /* Record.swift */; };
 		C32E050924867F90005DB49B /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E050824867F90005DB49B /* Country.swift */; };
+		C342EB4024A1F994009F8569 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C342EB3F24A1F994009F8569 /* ChartViewController.swift */; };
 		C3AA2B60249E474F00534C2B /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B5F249E474F00534C2B /* SwiftCSV */; };
 		C3AA2B63249F53C800534C2B /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B62249F53C800534C2B /* Charts */; };
 		C3AA2B66249F5AAA00534C2B /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = C3AA2B65249F5AAA00534C2B /* TinyConstraints */; };
@@ -26,7 +27,7 @@
 /* Begin PBXFileReference section */
 		C32E04F024867CA9005DB49B /* COVID-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C32E04F324867CA9005DB49B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C32E04F524867CA9005DB49B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C32E04F524867CA9005DB49B /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		C32E04F724867CB0005DB49B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C32E04FA24867CB0005DB49B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C32E04FC24867CB0005DB49B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +35,7 @@
 		C32E050324867CCF005DB49B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C32E050624867DB0005DB49B /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		C32E050824867F90005DB49B /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		C342EB3F24A1F994009F8569 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		C3D45E55249E04EA007BCAF7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		C3D5833C249FBAC100E2B0D1 /* DataModel+Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataModel+Charts.swift"; sourceTree = "<group>"; };
@@ -73,11 +75,10 @@
 		C32E04F224867CA9005DB49B /* COVID-19 Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				C342EB3E24A1F8F4009F8569 /* Controllers */,
 				C3D5833E249FC10E00E2B0D1 /* Charts */,
 				C32E050524867DA0005DB49B /* Data Model */,
 				C32E04F324867CA9005DB49B /* AppDelegate.swift */,
-				C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */,
-				C32E04F524867CA9005DB49B /* ViewController.swift */,
 				C32E04F724867CB0005DB49B /* Assets.xcassets */,
 				C32E04F924867CB0005DB49B /* Main.storyboard */,
 				C32E04FC24867CB0005DB49B /* Info.plist */,
@@ -96,6 +97,16 @@
 				C3D5833C249FBAC100E2B0D1 /* DataModel+Charts.swift */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		C342EB3E24A1F8F4009F8569 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C3D5833A249FB9A000E2B0D1 /* MainWindowController.swift */,
+				C32E04F524867CA9005DB49B /* SplitViewController.swift */,
+				C342EB3F24A1F994009F8569 /* ChartViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C3D5833E249FC10E00E2B0D1 /* Charts */ = {
@@ -186,7 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32E04F624867CA9005DB49B /* ViewController.swift in Sources */,
+				C32E04F624867CA9005DB49B /* SplitViewController.swift in Sources */,
 				C3D5833B249FB9A000E2B0D1 /* MainWindowController.swift in Sources */,
 				C32E04F424867CA9005DB49B /* AppDelegate.swift in Sources */,
 				C32E050724867DB0005DB49B /* Record.swift in Sources */,
@@ -195,6 +206,7 @@
 				C32E050424867CCF005DB49B /* Constants.swift in Sources */,
 				C3D58340249FC15F00E2B0D1 /* AxisDateFormatter.swift in Sources */,
 				C3D45E56249E04EA007BCAF7 /* DataModel.swift in Sources */,
+				C342EB4024A1F994009F8569 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

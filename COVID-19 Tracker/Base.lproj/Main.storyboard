@@ -694,25 +694,63 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="kTD-5D-Yrw" kind="relationship" relationship="window.shadowedContentViewController" id="U4l-Ic-5Ae"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Split View Controller-->
+        <scene sceneID="K9s-eO-3OB">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="COVID_19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <splitViewController id="kTD-5D-Yrw" customClass="SplitViewController" customModule="COVID_19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem id="TeV-14-9sc"/>
+                        <splitViewItem id="2cq-AH-rQY"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="b36-kb-hQJ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="kTD-5D-Yrw" id="5UO-pz-zpE"/>
+                        </connections>
+                    </splitView>
+                    <connections>
+                        <outlet property="splitView" destination="b36-kb-hQJ" id="qma-qo-ukG"/>
+                        <segue destination="f4v-8c-ZVo" kind="relationship" relationship="splitItems" id="emr-fo-ogT"/>
+                        <segue destination="aIQ-8t-KfX" kind="relationship" relationship="splitItems" id="hmv-1f-WtD"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="vSb-QP-dJ2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="729"/>
+        </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="tFm-bB-Mcz">
+            <objects>
+                <viewController id="f4v-8c-ZVo" customClass="ChartViewController" customModule="COVID_19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Hp3-Ip-9Xd">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Lns-5k-QuA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="750" y="539"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4di-gd-p8c">
+            <objects>
+                <viewController id="aIQ-8t-KfX" sceneMemberID="viewController">
+                    <view key="view" id="YGh-Ed-GkE">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="Bpr-3f-AK7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="911"/>
         </scene>
     </scenes>
 </document>
