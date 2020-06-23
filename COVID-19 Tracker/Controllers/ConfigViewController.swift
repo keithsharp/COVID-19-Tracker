@@ -35,7 +35,11 @@ class ConfigViewController: NSViewController {
     @IBAction func countryPopUpButtonChanged(_ sender: NSPopUpButton) {
         let index = sender.indexOfSelectedItem
         guard let item = sender.item(at: index) else { return }
-        chartViewController.drawCombinedChartFor(country: item.title)
+        let country = item.title
+        
+        UserDefaults.standard.set(country, forKey: Preferences.LAST_COUNTRY_SELECTED)
+        
+        chartViewController.drawCombinedChartFor(country: country)
     }
     
 }
@@ -55,6 +59,12 @@ extension ConfigViewController {
         }.sorted()
         
         countryPopUpButton.addItems(withTitles: countries)
+        
+        if let lastCountry = UserDefaults.standard.string(forKey: Preferences.LAST_COUNTRY_SELECTED) {
+            countryPopUpButton.selectItem(withTitle: lastCountry)
+        }
+        
+        countryPopUpButtonChanged(countryPopUpButton)
     }
 }
 
