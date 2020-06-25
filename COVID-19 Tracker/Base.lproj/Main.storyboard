@@ -744,12 +744,12 @@
             <objects>
                 <viewController id="aIQ-8t-KfX" customClass="ConfigViewController" customModule="COVID_19_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YGh-Ed-GkE">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="326" height="442"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UeC-g4-aed">
-                                <rect key="frame" x="18" y="256" width="265" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Country" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="l1H-aX-Pv5" id="iBt-6v-tm6">
+                                <rect key="frame" x="18" y="398" width="291" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Country" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="l1H-aX-Pv5" id="iBt-6v-tm6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="hQI-X5-T8D">
@@ -764,11 +764,172 @@
                                     <action selector="countryPopUpButtonChanged:" target="aIQ-8t-KfX" id="Dva-uS-FTr"/>
                                 </connections>
                             </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-yG-04m">
+                                <rect key="frame" x="245" y="364" width="64" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Bar" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="KDZ-IK-sFq" id="SoE-AG-73Q">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <menu key="menu" id="AUP-hQ-XeX">
+                                        <items>
+                                            <menuItem title="Bar" state="on" id="KDZ-IK-sFq"/>
+                                            <menuItem title="Line" id="NzN-TP-cTm"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7jD-vF-Ey6">
+                                <rect key="frame" x="245" y="333" width="64" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Bar" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="RHY-jl-5Bs" id="Yob-xV-Tsw">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <menu key="menu" id="ixn-qu-JiQ">
+                                        <items>
+                                            <menuItem title="Bar" state="on" id="RHY-jl-5Bs"/>
+                                            <menuItem title="Line" id="609-7t-yQd"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yDj-iX-2Hs">
+                                <rect key="frame" x="245" y="302" width="64" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Line" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="hbC-WJ-8qe" id="Z0V-of-cNx">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <menu key="menu" id="zl2-Zf-U7P">
+                                        <items>
+                                            <menuItem title="Bar" id="iRY-zF-sTj"/>
+                                            <menuItem title="Line" state="on" id="hbC-WJ-8qe"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iTz-3V-GyY">
+                                <rect key="frame" x="18" y="369" width="99" height="18"/>
+                                <buttonCell key="cell" type="check" title="Daily Deaths" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Q1H-Tm-ACZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="khl-Tr-sFX">
+                                <rect key="frame" x="18" y="338" width="115" height="18"/>
+                                <buttonCell key="cell" type="check" title="Daily Infections" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="1wt-nL-hvZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g9g-7Y-jx0">
+                                <rect key="frame" x="18" y="307" width="98" height="18"/>
+                                <buttonCell key="cell" type="check" title="Total Deaths" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="SXV-Ig-vHh">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-68-oTz">
+                                <rect key="frame" x="18" y="276" width="115" height="18"/>
+                                <buttonCell key="cell" type="check" title="Total Infections" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="M3f-T5-ToR">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-n5-n4o">
+                                <rect key="frame" x="167" y="20" width="139" height="148"/>
+                                <datePickerCell key="cell" enabled="NO" borderStyle="bezel" alignment="left" datePickerStyle="clockAndCalendar" id="L7V-hU-26w">
+                                    <font key="font" metaFont="system"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="599533200">
+                                        <!--2020-01-01 1:00:00 am +0000-->
+                                    </date>
+                                    <date key="minDate" timeIntervalSinceReferenceDate="599533200">
+                                        <!--2020-01-01 1:00:00 am +0000-->
+                                    </date>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                </datePickerCell>
+                            </datePicker>
+                            <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z3H-fg-QDC">
+                                <rect key="frame" x="20" y="20" width="139" height="148"/>
+                                <datePickerCell key="cell" enabled="NO" borderStyle="bezel" alignment="left" datePickerStyle="clockAndCalendar" id="SO3-lh-0he">
+                                    <font key="font" metaFont="system"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="599533200">
+                                        <!--2020-01-01 1:00:00 am +0000-->
+                                    </date>
+                                    <date key="minDate" timeIntervalSinceReferenceDate="599533200">
+                                        <!--2020-01-01 1:00:00 am +0000-->
+                                    </date>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                </datePickerCell>
+                            </datePicker>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-dS-DCb">
+                                <rect key="frame" x="18" y="176" width="35" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="ZCb-4j-EWD"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="From" id="5dG-eI-Jpj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mey-Lc-fDu">
+                                <rect key="frame" x="165" y="176" width="19" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="Hhs-9T-u8d"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="To" id="ulQ-SX-UQp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8hT-X1-kCs">
+                                <rect key="frame" x="245" y="271" width="64" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Line" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="e41-6z-gRV" id="xBx-hY-9k6">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <menu key="menu" id="Xol-yY-eTt">
+                                        <items>
+                                            <menuItem title="Bar" id="XT3-vR-nQL"/>
+                                            <menuItem title="Line" state="on" id="e41-6z-gRV"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" constant="20" id="1PD-nS-II9"/>
-                            <constraint firstItem="UeC-g4-aed" firstAttribute="top" secondItem="YGh-Ed-GkE" secondAttribute="top" constant="20" id="ZLM-hw-mKO"/>
-                            <constraint firstItem="UeC-g4-aed" firstAttribute="leading" secondItem="YGh-Ed-GkE" secondAttribute="leading" constant="20" id="tWw-9W-Zw4"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mey-Lc-fDu" secondAttribute="trailing" constant="20" symbolic="YES" id="2nj-2D-Psw"/>
+                            <constraint firstItem="Mey-Lc-fDu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h8A-dS-DCb" secondAttribute="trailing" constant="8" symbolic="YES" id="4iV-zI-Qhu"/>
+                            <constraint firstItem="yDj-iX-2Hs" firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" id="54E-Kq-7dQ"/>
+                            <constraint firstItem="Mey-Lc-fDu" firstAttribute="leading" secondItem="uBY-n5-n4o" secondAttribute="leading" id="6Vb-uu-Dlp"/>
+                            <constraint firstItem="iTz-3V-GyY" firstAttribute="top" secondItem="UeC-g4-aed" secondAttribute="bottom" constant="16" id="7hX-pr-dsR"/>
+                            <constraint firstItem="K6e-yG-04m" firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" id="9d9-yA-N1o"/>
+                            <constraint firstItem="7jD-vF-Ey6" firstAttribute="top" secondItem="K6e-yG-04m" secondAttribute="bottom" constant="10" id="CgG-9o-PA6"/>
+                            <constraint firstItem="Mhd-68-oTz" firstAttribute="leading" secondItem="UeC-g4-aed" secondAttribute="leading" id="Gbw-H8-iOb"/>
+                            <constraint firstItem="h8A-dS-DCb" firstAttribute="leading" secondItem="YGh-Ed-GkE" secondAttribute="leading" constant="20" id="Is9-eU-5Jz"/>
+                            <constraint firstItem="8hT-X1-kCs" firstAttribute="top" secondItem="yDj-iX-2Hs" secondAttribute="bottom" constant="10" id="KuH-Qk-khX"/>
+                            <constraint firstItem="K6e-yG-04m" firstAttribute="top" secondItem="UeC-g4-aed" secondAttribute="bottom" constant="13" id="Okb-XN-6Sb"/>
+                            <constraint firstItem="khl-Tr-sFX" firstAttribute="leading" secondItem="UeC-g4-aed" secondAttribute="leading" id="OoE-di-VAl"/>
+                            <constraint firstItem="yDj-iX-2Hs" firstAttribute="top" secondItem="7jD-vF-Ey6" secondAttribute="bottom" constant="10" id="PRq-8b-1BP"/>
+                            <constraint firstAttribute="bottom" secondItem="Z3H-fg-QDC" secondAttribute="bottom" constant="20" id="Pd6-SP-VB3"/>
+                            <constraint firstAttribute="trailing" secondItem="uBY-n5-n4o" secondAttribute="trailing" constant="20" id="Rc1-iK-4vv"/>
+                            <constraint firstItem="7jD-vF-Ey6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="khl-Tr-sFX" secondAttribute="trailing" constant="20" id="TpD-zW-px3"/>
+                            <constraint firstItem="g9g-7Y-jx0" firstAttribute="leading" secondItem="UeC-g4-aed" secondAttribute="leading" id="U0e-gR-g8w"/>
+                            <constraint firstItem="iTz-3V-GyY" firstAttribute="leading" secondItem="UeC-g4-aed" secondAttribute="leading" id="UrO-gq-hsg"/>
+                            <constraint firstItem="uBY-n5-n4o" firstAttribute="leading" secondItem="Z3H-fg-QDC" secondAttribute="trailing" constant="8" id="UzG-gb-LQk"/>
+                            <constraint firstItem="g9g-7Y-jx0" firstAttribute="top" secondItem="khl-Tr-sFX" secondAttribute="bottom" constant="17" id="Yn3-CD-xT0"/>
+                            <constraint firstItem="Mhd-68-oTz" firstAttribute="top" secondItem="g9g-7Y-jx0" secondAttribute="bottom" constant="17" id="aCf-q0-Mn0"/>
+                            <constraint firstItem="Z3H-fg-QDC" firstAttribute="top" secondItem="h8A-dS-DCb" secondAttribute="bottom" constant="8" id="b1J-fS-UdX"/>
+                            <constraint firstItem="yDj-iX-2Hs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g9g-7Y-jx0" secondAttribute="trailing" constant="20" id="dkf-36-pEC"/>
+                            <constraint firstItem="khl-Tr-sFX" firstAttribute="top" secondItem="iTz-3V-GyY" secondAttribute="bottom" constant="17" id="ie0-0F-ZQs"/>
+                            <constraint firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" constant="20" id="j7L-eP-AyE"/>
+                            <constraint firstAttribute="bottom" secondItem="uBY-n5-n4o" secondAttribute="bottom" constant="20" id="nhx-Wr-OLA"/>
+                            <constraint firstItem="8hT-X1-kCs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mhd-68-oTz" secondAttribute="trailing" constant="20" id="pEe-iP-4ra"/>
+                            <constraint firstItem="uBY-n5-n4o" firstAttribute="top" secondItem="Mey-Lc-fDu" secondAttribute="bottom" constant="8" id="qXe-FV-QKW"/>
+                            <constraint firstItem="7jD-vF-Ey6" firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" id="s5l-ep-uNp"/>
+                            <constraint firstItem="Z3H-fg-QDC" firstAttribute="leading" secondItem="YGh-Ed-GkE" secondAttribute="leading" constant="20" id="s8G-z8-4MX"/>
+                            <constraint firstItem="UeC-g4-aed" firstAttribute="leading" secondItem="YGh-Ed-GkE" secondAttribute="leading" constant="20" id="ucv-fz-0c6"/>
+                            <constraint firstItem="K6e-yG-04m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iTz-3V-GyY" secondAttribute="trailing" constant="20" id="zAa-LB-Q7X"/>
+                            <constraint firstItem="UeC-g4-aed" firstAttribute="top" secondItem="YGh-Ed-GkE" secondAttribute="top" constant="20" id="zea-eJ-LbU"/>
+                            <constraint firstItem="8hT-X1-kCs" firstAttribute="trailing" secondItem="UeC-g4-aed" secondAttribute="trailing" id="zlC-Sp-y3f"/>
                         </constraints>
                     </view>
                     <connections>
@@ -777,7 +938,7 @@
                 </viewController>
                 <customObject id="Bpr-3f-AK7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="911"/>
+            <point key="canvasLocation" x="763" y="982"/>
         </scene>
     </scenes>
 </document>
